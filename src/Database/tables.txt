@@ -1,0 +1,147 @@
+CREATE TABLE [dbo].[Users]( 
+  	[id] INT IDENTITY(1,1) NOT NULL, 
+  	[Firstname] VARCHAR(200) NOT NULL,
+  	[Lastname] VARCHAR(200) NOT NULL,
+ 	[Senderemail] VARCHAR (100) UNIQUE,
+	[Password] VARCHAR(200),
+	[role] VARCHAR(100) DEFAULT 'user',
+	[issent] INT DEFAULT 0,
+
+ 	)
+
+   CREATE TABLE [dbo].Parcels( 
+    [id] INT IDENTITY(1,1) NOT NULL,
+    [Adress] VARCHAR(100),
+	[Senderemail] VARCHAR(100),
+  	[RecepientEmail] VARCHAR(100),
+  	[parcelname] VARCHAR(100),
+  	[weight] VARCHAR(200),
+  	[status] VARCHAR(200) DEFAULT 'Pending',
+ 	[Date] VARCHAR (100),
+	[lat] INT NOT NULL,
+	[lng] INT NOT NULL,
+	[TruckNo] VARCHAR(200) NOT NULL,
+	[TrackingNo] VARCHAR(200) NOT NULL,
+	[Price] INT NOT NULL,
+	
+  	CONSTRAINT 
+  	Senderemail FOREIGN KEY(Senderemail) 
+
+     REFERENCES dbo.Users(Senderemail)
+ 	)
+	CREATE PROCEDURE getUser(@Senderemail VARCHAR(100))
+   AS      
+   BEGIN
+   SELECT * FROM Users WHERE Senderemail =@Senderemail
+   END
+
+ CREATE PROCEDURE getUsers
+   AS
+   BEGIN
+   SELECT * FROM Users
+   END
+
+CREATE PROCEDURE addUserProfile(@id INT, @Profile VARCHAR(200))
+AS
+   BEGIN
+Update  Users 
+SET Profile = @Profile
+WHERE id=@id
+END
+
+CREATE PROCEDURE deleteParcel(@id INT)
+AS
+BEGIN
+UPDATE Parcels SET deleted=1
+WHERE id=@id
+END
+   
+CREATE PROCEDURE updateParcel(@id INT)
+AS
+BEGIN
+UPDATE Parcels SET status='Delivered'
+WHERE id=@id
+END
+
+CREATE PROCEDURE updateSent(@id INT)
+AS
+BEGIN
+UPDATE Parcels SET issent=1
+WHERE id=@id
+END
+
+
+
+
+CREATE OR ALTER PROCEDURE insertUpdateParcel(
+@id INT ,
+@Adress VARCHAR(100),
+@Senderemail VARCHAR(100) ,
+@RecepientEmail VARCHAR(100),
+@parcelname VARCHAR(100),
+@weight VARCHAR(200),
+@Date VARCHAR(100),
+@lat INT,
+@lng INT,
+@TruckNo VARCHAR(200),
+@TrackingNo VARCHAR(200),
+@Price INT)
+
+AS
+BEGIN
+DECLARE @variableId BIT
+
+SELECT @variableId =COUNT(id) FROM parcels WHERE id=@id
+
+IF @variableId=0
+BEGIN
+
+INSERT INTO Parcels
+(Adress,
+Senderemail,
+RecepientEmail, 
+parcelname, 
+weight,
+Date,
+lat,
+lng,
+TruckNo,
+TrackingNo,
+Price) 
+VALUES 
+(@Adress,
+@Senderemail,
+@RecepientEmail,
+@parcelname, 
+@weight,
+@Date,
+@lat,
+@lng,
+@TruckNo,
+@TrackingNo,
+@Price)
+   END
+ELSE 
+BEGIN
+
+Update  [Users]
+SET issent =1
+WHERE id=@id
+   END
+
+END
+
+
+Update  [Parcels]
+Adress=@Adress,
+Senderemail=@Senderemail,
+RecepientEmail=@RecepientEmail,  
+parcelname=@parcelname, 
+weight=@weight,
+Date=@Date,
+lat=@lat,
+lng=@lng,
+TruckNo=@TruckNo,
+TrackingNo=@TrackingNo,
+Price=@Price
+WHERE id = @id

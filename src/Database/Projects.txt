@@ -1,0 +1,41 @@
+CREATE PROCEDURE insertParcel
+(@Adress VARCHAR(100),@Senderemail VARCHAR(100) ,@RecepientEmail VARCHAR(100),@parcelname VARCHAR(100), @weight VARCHAR(200),@Date VARCHAR(100),@lat INT,@lng INT,@TruckNo VARCHAR(200),@TrackingNo VARCHAR(200),@Price INT)
+   AS
+   BEGIN
+   INSERT INTO Parcels(Adress,Senderemail,RecepientEmail, parcelname, weight,Date,lat,lng,TruckNo,TrackingNo,Price) VALUES (@Adress,@Senderemail,@RecepientEmail, @parcelname, @weight,@Date,@lat,@lng,@TruckNo,@TrackingNo,@Price)
+   END
+
+   CREATE PROCEDURE getOneParcel(@Senderemail VARCHAR(100))
+   AS
+   BEGIN
+   SELECT * FROM Parcels WHERE Senderemail =@Senderemail
+   END
+
+   CREATE PROCEDURE addProfile(@Firstname VARCHAR(200), @Bio VARCHAR(200))
+AS
+   BEGIN
+   INSERT INTO Profiles(Firstname, Bio) VALUES (@Firstname, @Bio)
+   END
+
+     CREATE TABLE [dbo].[Profiles]( 
+  	[id] INT IDENTITY(1,1) , 
+  	[Firstname] VARCHAR(200) ,
+	[Bio] VARCHAR(200) ,
+ 
+ 	)
+
+   CREATE PROCEDURE addUserProfile(@Profile VARCHAR(200),@Senderemail Varchar(200))
+AS
+   BEGIN
+Update  Users 
+SET Profile =@Profile
+WHERE Senderemail=@Senderemail
+   END
+
+CREATE PROCEDURE deleteUser(@id INT)
+AS
+   BEGIN
+Update  Users 
+SET issent =1
+WHERE id=@id
+   END

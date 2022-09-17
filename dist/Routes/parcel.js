@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const parcelController_1 = require("../Controllers/parcelController");
+const routers = (0, express_1.Router)();
+routers.post('/add', parcelController_1.addParcel);
+routers.get('/sentparcels', parcelController_1.getAllParcels);
+routers.get('/receivedparcels', parcelController_1.getrecievedParcels);
+routers.put('/edit', parcelController_1.editParcel);
+routers.get('/get', parcelController_1.getAllParcels);
+routers.get('/update/:id', parcelController_1.updateDelivered);
+routers.get('/delete/:id', parcelController_1.deleteParcel);
+routers.post('/sent/:id', parcelController_1.updatesent);
+routers.get('/:id', parcelController_1.getParcel);
+exports.default = routers;

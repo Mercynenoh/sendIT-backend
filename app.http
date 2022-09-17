@@ -1,0 +1,53 @@
+POST  http://localhost:5000/user/add
+Content-Type: application/json
+
+{
+    "id":2,
+    "Profile":"https://www.bing.com/th?id=OIP.TM1GkIhtCbZb8FTHgAIh4QHaFs&w=129&h=100&c=8&rs=1&qlt=90&o=6&dpr=1.89&pid=3.1&rm=2"
+}
+
+####
+POST http://localhost:5000/user/signup
+Content-Type: application/json
+
+{
+    "Firstname":"debdsdsie",
+    "Lastname":"sdhds",
+    "Senderemail": "anothers@gmail.com",
+    "Password": "mercy12!"
+}
+
+###
+GET   http://localhost:5000/parcels/receivedparcels
+Content-Type: application/json
+
+{
+      
+      "Profile":"https://th.bing.com/th/id/OIP.TM1GkIhtCbZb8FTHgAIh4QHaFs?w=207&h=180&c=7&r=0&o=5&dpr=1.89&pid=1.7"
+    }
+###
+GET http://localhost:5000/user/check
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiRmlyc3RuYW1lIjoiZmlyc3QiLCJMYXN0bmFtZSI6IlVzZXIiLCJTZW5kZXJlbWFpbCI6ImZpcnN0QGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaXNzZW50IjowLCJpYXQiOjE2NjMwNTM0ODQsImV4cCI6MTY2MzA1NzA4NH0.0IXPwmugGUqRXWMIfTsCBto5N9_NqA_RZkpcalBFXNQ
+
+####
+PUT http://localhost:5000/parcels/edit
+Content-Type: application/json
+
+{
+      "Adress": "Nanyuki",
+      "Senderemail": "mercy@gmail.com",
+      "RecepientEmail": "faith@gmail.com",
+      "parcelname": "Flowers",
+      "weight": 373,
+      "Date": "2022-09-12",
+      "lat": -0.091702,     
+      "lng": 34.767956,
+      "TruckNo": "KGF 779h",
+      "TrackingNo": "632788",
+      "Price": 4748
+}
+
+
+####
+GET  http://localhost:5000/parcels/update/20
+Content-Type: application/json

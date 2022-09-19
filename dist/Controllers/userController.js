@@ -70,12 +70,12 @@ const addUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             .input('Firstname', mssql_1.default.VarChar, Firstname)
             .input('Lastname', mssql_1.default.VarChar, Lastname)
             .input('Senderemail', mssql_1.default.VarChar, Senderemail)
-            .input('Profile', mssql_1.default.VarChar, Senderemail)
             .input('Password', mssql_1.default.VarChar, hashedpassword)
             .execute('addUser');
         res.json({ message: 'Registered...' });
     }
     catch (error) {
+        console.log(error);
         if (error instanceof mssql_1.RequestError) {
             res.json({ message: error.message });
         }
@@ -107,11 +107,11 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             .execute('getUser')).recordset;
         const user = usersResult[0];
         if (!user) {
-            return res.json({ message: 'User Not Found' });
+            res.status(400).json({ message: 'Invalid Email' });
         }
         const validPassword = yield bcrypt_1.default.compare(Password, user.Password);
         if (!validPassword) {
-            return res.json({ message: 'Invalid password' });
+            res.status(400).json({ message: 'Invalid Password' });
         }
         const { Password: _ } = user, rest = __rest(user, ["Password"]);
         const token = jsonwebtoken_1.default.sign(rest, process.env.KEY, { expiresIn: '3600s' });

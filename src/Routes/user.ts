@@ -10,6 +10,5 @@ router.post('/signup', addUser)
 router.get('/check',VerifyToken)
 router.get('/all', getUsers)
 router.get('/add/:id', addProfile)
-router.get('/profiles', getProfiles)
 
 export default router

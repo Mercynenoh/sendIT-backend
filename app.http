@@ -1,47 +1,41 @@
-POST  http://localhost:5000/user/add
-Content-Type: application/json
 
-{
-    "id":2,
-    "Profile":"https://www.bing.com/th?id=OIP.TM1GkIhtCbZb8FTHgAIh4QHaFs&w=129&h=100&c=8&rs=1&qlt=90&o=6&dpr=1.89&pid=3.1&rm=2"
-}
-
-####
 POST http://localhost:5000/user/signup
 Content-Type: application/json
 
 {
-    "Firstname":"debdsdsie",
-    "Lastname":"sdhds",
-    "Senderemail": "anothers@gmail.com",
+    "Firstname":"Mercy",
+    "Lastname":"Nenoh",
+    "Senderemail": "mercy.chepngenoh@student.moringaschool.com",
     "Password": "mercy12!"
 }
 
 ###
-GET   http://localhost:5000/parcels/receivedparcels
+POST http://localhost:5000/user/login
 Content-Type: application/json
 
 {
-      
-      "Profile":"https://th.bing.com/th/id/OIP.TM1GkIhtCbZb8FTHgAIh4QHaFs?w=207&h=180&c=7&r=0&o=5&dpr=1.89&pid=1.7"
-    }
+    "Senderemail": "mercynenoh22@gmail.com",
+    "Password": "mercy12!"
+}
+
 ###
-GET http://localhost:5000/user/check
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiRmlyc3RuYW1lIjoiZmlyc3QiLCJMYXN0bmFtZSI6IlVzZXIiLCJTZW5kZXJlbWFpbCI6ImZpcnN0QGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaXNzZW50IjowLCJpYXQiOjE2NjMwNTM0ODQsImV4cCI6MTY2MzA1NzA4NH0.0IXPwmugGUqRXWMIfTsCBto5N9_NqA_RZkpcalBFXNQ
+GET http://localhost:5000/user/all
+Content-Type: application/json
 
-####
-PUT http://localhost:5000/parcels/edit
+###
+
+PUT  http://localhost:5000/parcels/edit/35
 Content-Type: application/json
 
 {
-      "Adress": "Nanyuki",
-      "Senderemail": "mercy@gmail.com",
-      "RecepientEmail": "faith@gmail.com",
-      "parcelname": "Flowers",
-      "weight": 373,
+       "Adress": "Nanyuki",
+      "Senderemail": "mercynenoh22@gmail.com",
+      "RecepientEmail": "onetwo@gmail.com",
+      "parcelname": "Parcel",
+      "weight": 37783,
       "Date": "2022-09-12",
-      "lat": -0.091702,     
-      "lng": 34.767956,
+      "lat": 0,     
+      "lng": 34,
       "TruckNo": "KGF 779h",
       "TrackingNo": "632788",
       "Price": 4748
@@ -49,5 +43,45 @@ Content-Type: application/json
 
 
 ####
-GET  http://localhost:5000/parcels/update/20
+POST  http://localhost:5000/parcels/add
+Content-Type: application/json
+
+{
+      "Adress": "Nanyuki",
+      "Senderemail": "mercynenoh22@gmail.com",
+      "RecepientEmail": "onetjjjwo@gmail.com",
+      "parcelname": "Ngfjhkew",
+      "weight": 37783,
+      "Date": "2022-09-12",
+      "lat": 0,     
+      "lng": 34,
+      "TruckNo": "KGF 779h",
+      "TrackingNo": "632788",
+      "Price": 4748
+}
+###
+GET  http://localhost:5000/parcels/get
+Content-Type: application/json
+
+####
+GET  http://localhost:5000/parcels/update/26
+Content-Type: application/json
+
+####
+GET  http://localhost:5000/parcels/delete/22
+Content-Type: application/json
+
+####
+POST  http://localhost:5000/parcels/sent/17
+Content-Type: application/json
+
+####
+GET  http://localhost:5000/parcels/56678
+Content-Type: application/json
+####
+GET  http://localhost:5000/parcels/sentparcels/mercynenoh22@gmail.com
+Content-Type: application/json
+
+####
+GET  http://localhost:5000/parcels/receivedparcels/new@gmail.com
 Content-Type: application/json

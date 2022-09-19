@@ -9,5 +9,4 @@ router.post('/signup', userController_1.addUser);
 router.get('/check', verifyToken_1.VerifyToken);
 router.get('/all', userController_1.getUsers);
 router.get('/add/:id', userController_1.addProfile);
-router.get('/profiles', userController_1.getProfiles);
 exports.default = router;

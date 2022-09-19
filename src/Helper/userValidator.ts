@@ -12,3 +12,5 @@ export const UserSchemas= Joi.object({
     Senderemail:Joi.string().required().email(),
     Password:Joi.string().required()
 })
+
+

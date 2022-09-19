@@ -1,4 +1,4 @@
-     import { Request, Response, RequestHandler } from "express";
+import { Request, Response, RequestHandler } from "express";
 import mssql, { RequestError } from 'mssql';
 import { sqlConfig } from "../Config/Config";
 import bcrypt from 'bcrypt'
@@ -25,7 +25,6 @@ interface ExtendedRequest extends Request{
         Lastname:string
         Senderemail:string
         Password:string
-        Profile:string
        
 
     }
@@ -43,13 +42,13 @@ export const addUser=async( req:ExtendedRequest, res:Response)=>{
         . input('Firstname', mssql.VarChar, Firstname)
         . input('Lastname', mssql.VarChar, Lastname)
         . input('Senderemail', mssql.VarChar, Senderemail)
-        . input('Profile', mssql.VarChar, Senderemail)
         . input('Password', mssql.VarChar, hashedpassword)
         .execute('addUser')
 
       
         res.json({message:'Registered...'})
     } catch (error) {
+console.log(error);
 
          if(error instanceof RequestError){
       res.json({message:error.message})
@@ -85,12 +84,12 @@ export const loginUser=async(req:ExtendedRequest, res:Response)=>{
      const user = usersResult[0];
 
      if(!user){
-       return res.json({message:'User Not Found'})
+      res.status(400).json({message:'Invalid Email'});
      }
 
      const validPassword = await bcrypt.compare(Password,user.Password)
      if(!validPassword){
-       return res.json({message:'Invalid password'})
+      res.status(400).json({message:'Invalid Password'});
 
      }
      const{Password: _, ...rest} = user

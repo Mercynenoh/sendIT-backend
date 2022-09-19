@@ -10,7 +10,7 @@ export interface User{
 export interface Data{
     id: string,
     Senderemail: string,
-    name:string
+    Firstname:string
     role:string
     iat: number,
     exp: number

@@ -7,8 +7,8 @@ const router =Router()
 
 router.post('/login',loginUser)
 router.post('/signup', addUser)
-router.get('/check',checkUser,VerifyToken,)
-router.get('/all', getUsers)
+router.get('/all',VerifyToken, getUsers)
 router.get('/add/:id', addProfile)
+router.get('/check',VerifyToken,checkUser)
 
 export default router

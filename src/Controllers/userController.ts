@@ -95,7 +95,7 @@ export const loginUser=async(req:ExtendedRequest, res:Response)=>{
      const{Password: _, ...rest} = user
      
 
-       const token =jwt.sign(rest ,process.env.KEY as string,{expiresIn:'3600s'})
+       const token =jwt.sign(rest ,process.env.KEY as string,{expiresIn:'7200s'})
      res.json({
        message:'Logged in',
        user: rest,
@@ -130,7 +130,7 @@ export const getUsers: RequestHandler = async (req, res) => {
 
   export const checkUser= async (req:Extended, res:Response)=>{
     if(req.info){
-      res.json({name:req.info.name, role:req.info.role})
+      res.json({name:req.info.Firstname, role:req.info.role})
     }
   }
 

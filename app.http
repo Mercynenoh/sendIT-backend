@@ -14,16 +14,17 @@ POST http://localhost:5000/user/login
 Content-Type: application/json
 
 {
-    "Senderemail": "mercynenoh22@gmail.com",
+    "Senderemail": "mercy.chepngenoh@student.moringaschool.com",
     "Password": "mercy12!"
 }
 
 ###
 GET http://localhost:5000/user/check
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsIkZpcnN0bmFtZSI6Ik1lcmN5IiwiTGFzdG5hbWUiOiJjaGVwIiwiU2VuZGVyZW1haWwiOiJtZXJjeW5lbm9oMjJAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpc3NlbnQiOjEsImlzZGVsZXRlZCI6MCwiaWF0IjoxNjYzNTg2MjA0LCJleHAiOjE2NjM1ODk4MDR9.6DFJgfZVV3NSSiZ4EiTslFDF-n3QaIRmLNHXWY3etbo
-###
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjYsIkZpcnN0bmFtZSI6Ik1lcmN5IiwiTGFzdG5hbWUiOiJOZW5vaCIsIlNlbmRlcmVtYWlsIjoibWVyY3kuY2hlcG5nZW5vaEBzdHVkZW50Lm1vcmluZ2FzY2hvb2wuY29tIiwicm9sZSI6InVzZXIiLCJpc3NlbnQiOjEsImlzZGVsZXRlZCI6MCwiaWF0IjoxNjYzNTg3NDU3LCJleHAiOjE2NjM1OTEwNTd9.R3VVqqS2-5CWwTZE3d8fWcDjpeto4TW6DSODrXYTotQ
+####
 
 GET http://localhost:5000/user/all
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjYsIkZpcnN0bmFtZSI6Ik1lcmN5IiwiTGFzdG5hbWUiOiJOZW5vaCIsIlNlbmRlcmVtYWlsIjoibWVyY3kuY2hlcG5nZW5vaEBzdHVkZW50Lm1vcmluZ2FzY2hvb2wuY29tIiwicm9sZSI6InVzZXIiLCJpc3NlbnQiOjEsImlzZGVsZXRlZCI6MCwiaWF0IjoxNjYzNTg3NDU3LCJleHAiOjE2NjM1OTEwNTd9.R3VVqqS2-5CWwTZE3d8fWcDjpeto4TW6DSODrXYTotQ
 Content-Type: application/json
 
 ###
@@ -47,24 +48,26 @@ Content-Type: application/json
 
 
 ####
-POST  http://localhost:5000/parcels/add
+PUT   http://localhost:5000/parcels/edit/41
 Content-Type: application/json
 
 {
       "Adress": "Nanyuki",
-      "Senderemail": "mercynenoh22@gmail.com",
-      "RecepientEmail": "onetjjjwo@gmail.com",
-      "parcelname": "GIFTS",
+      "Senderemail": "mercy.chepngenoh@student.moringaschool.com",
+      "RecepientEmail": "mercynenoh22@gmail.com",
+      "parcelname": "another parcel",
       "weight": 37783,
       "Date": "2022-09-12",
       "lat": 0,     
       "lng": 34,
-      "TruckNo": "KKDD779h",
+      "TruckNo": "KGF 779h",
       "TrackingNo": "632788",
       "Price": 4748
 }
 ###
+
 GET  http://localhost:5000/parcels/get
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjYsIkZpcnN0bmFtZSI6Ik1lcmN5IiwiTGFzdG5hbWUiOiJOZW5vaCIsIlNlbmRlcmVtYWlsIjoibWVyY3kuY2hlcG5nZW5vaEBzdHVkZW50Lm1vcmluZ2FzY2hvb2wuY29tIiwicm9sZSI6InVzZXIiLCJpc3NlbnQiOjEsImlzZGVsZXRlZCI6MCwiaWF0IjoxNjYzNTg3NDU3LCJleHAiOjE2NjM1OTEwNTd9.R3VVqqS2-5CWwTZE3d8fWcDjpeto4TW6DSODrXYTotQ
 Content-Type: application/json
 
 ####
@@ -72,11 +75,11 @@ PUT  http://localhost:5000/parcels/update/39
 Content-Type: application/json
 
 ####
-DELETE   http://localhost:5000/parcels/delete/40
+DELETE   http://localhost:5000/parcels/delete/39
 Content-Type: application/json
 
 ####
-GET  http://localhost:5000/parcels/56678
+GET  http://localhost:5000/parcels/39
 Content-Type: application/json
 ####
 GET  http://localhost:5000/parcels/sentparcels/mercynenoh22@gmail.com

@@ -114,7 +114,7 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             res.status(400).json({ message: 'Invalid Password' });
         }
         const { Password: _ } = user, rest = __rest(user, ["Password"]);
-        const token = jsonwebtoken_1.default.sign(rest, process.env.KEY, { expiresIn: '3600s' });
+        const token = jsonwebtoken_1.default.sign(rest, process.env.KEY, { expiresIn: '7200s' });
         res.json({
             message: 'Logged in',
             user: rest,
@@ -151,7 +151,7 @@ const getProfiles = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 exports.getProfiles = getProfiles;
 const checkUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     if (req.info) {
-        res.json({ name: req.info.name, role: req.info.role });
+        res.json({ name: req.info.Firstname, role: req.info.role });
     }
 });
 exports.checkUser = checkUser;

@@ -8,7 +8,7 @@ routers.get('/sentparcels/:Senderemail', parcelController_1.getsentParcels);
 routers.get('/receivedparcels/:RecepientEmail', parcelController_1.getrecievedParcels);
 routers.put('/edit/:id', parcelController_1.editParcel);
 routers.get('/get', parcelController_1.getAllParcels);
-routers.get('/update/:id', parcelController_1.updateDelivered);
+routers.put('/update/:id', parcelController_1.updateDelivered);
 routers.delete('/delete/:id', parcelController_1.deleteParcel);
 routers.post('/sent/:id', parcelController_1.updatesent);
 routers.get('/:id', parcelController_1.getParcel);

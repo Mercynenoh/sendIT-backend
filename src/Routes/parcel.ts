@@ -10,7 +10,7 @@ import{addParcel, getParcel, deleteParcel, updateDelivered, updatesent, getAllPa
  routers.put('/edit/:id', editParcel)
  routers.get('/get', getAllParcels)
  routers.get('/update/:id', updateDelivered)
- routers.get('/delete/:id', deleteParcel)
+ routers.delete('/delete/:id', deleteParcel)
  routers.post('/sent/:id', updatesent)
  routers.get('/:id', getParcel)
  

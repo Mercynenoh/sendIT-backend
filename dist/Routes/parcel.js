@@ -9,7 +9,7 @@ routers.get('/receivedparcels/:RecepientEmail', parcelController_1.getrecievedPa
 routers.put('/edit/:id', parcelController_1.editParcel);
 routers.get('/get', parcelController_1.getAllParcels);
 routers.get('/update/:id', parcelController_1.updateDelivered);
-routers.get('/delete/:id', parcelController_1.deleteParcel);
+routers.delete('/delete/:id', parcelController_1.deleteParcel);
 routers.post('/sent/:id', parcelController_1.updatesent);
 routers.get('/:id', parcelController_1.getParcel);
 exports.default = routers;

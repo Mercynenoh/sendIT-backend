@@ -128,4 +128,10 @@ export const getUsers: RequestHandler = async (req, res) => {
     }
   }
 
+  export const checkUser= async (req:Extended, res:Response)=>{
+    if(req.info){
+      res.json({name:req.info.name, role:req.info.role})
+    }
+  }
+
 

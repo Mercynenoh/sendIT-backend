@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { loginUser, addUser, getUsers, getProfiles, addProfile } from "../Controllers/userController";
+import { loginUser, addUser, getUsers, getProfiles, addProfile, checkUser } from "../Controllers/userController";
 import { VerifyToken } from "../Middleware/verifyToken";
 
 const router =Router()
@@ -7,7 +7,7 @@ const router =Router()
 
 router.post('/login',loginUser)
 router.post('/signup', addUser)
-router.get('/check',VerifyToken)
+router.get('/check',checkUser,VerifyToken,)
 router.get('/all', getUsers)
 router.get('/add/:id', addProfile)
 

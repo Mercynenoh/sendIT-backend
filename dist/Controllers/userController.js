@@ -46,7 +46,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getProfiles = exports.getUsers = exports.loginUser = exports.addProfile = exports.addUser = void 0;
+exports.checkUser = exports.getProfiles = exports.getUsers = exports.loginUser = exports.addProfile = exports.addUser = void 0;
 const mssql_1 = __importStar(require("mssql"));
 const Config_1 = require("../Config/Config");
 const bcrypt_1 = __importDefault(require("bcrypt"));
@@ -149,3 +149,9 @@ const getProfiles = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.getProfiles = getProfiles;
+const checkUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (req.info) {
+        res.json({ name: req.info.name, role: req.info.role });
+    }
+});
+exports.checkUser = checkUser;
